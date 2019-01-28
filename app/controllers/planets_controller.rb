@@ -1,10 +1,11 @@
 class PlanetsController < ApplicationController
-  before_action :set_planet, only: [:show]
-  before_action :authenticate_user!, except: [ :index, :show]
+  before_action :set_planet, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @planets = Planet.all
   end
+
 
   def show
   end
@@ -22,6 +23,15 @@ class PlanetsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @planet.update(planet_params)
+      redirect_to planet_path(@planet)
+    else render :edit
+    end
+  end
 
   private
 
