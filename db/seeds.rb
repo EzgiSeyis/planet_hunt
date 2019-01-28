@@ -12,5 +12,5 @@ planet_category = ['Ice planet', 'Lava planet', 'Earth analog', 'Ocean planet', 
 testuser = User.new(email: 'test@testmail.com', first_name: 'Max', last_name: 'Mustermann', password: '123test', password_confirmation: '123test')
 
 10.times do
-  Planet.create(name: Faker::Space.star, solar_system: Faker::Space.galaxy, category: planet_category.sample, size: rand(10000..100000), price: rand(100..999), photo: 'https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260', user: testuser)
+  Planet.create(name: Faker::Space.star, description: 'An Earth-like planet with an unusually large axial tilt causing extreme seasonal changes. Both the northern and southern hemispheres experience harsh winters, with cold nights that can last for weeks or months at a time depending on latitude. The atmosphere is composed mostly of nitrogen and oxygen, but high levels of carbon dioxide and carbon monoxide make it lethal to humans. The most advanced form of life on this planet is a type of fungus.', solar_system: Faker::Space.galaxy, category: planet_category.sample, size: rand(10000..100000), price: rand(100..999), photo: 'https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260', user: testuser)
 end
