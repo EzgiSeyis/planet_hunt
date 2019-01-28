@@ -1,0 +1,11 @@
+<%= simple_form_for @planet do |f| %>
+<%= f.input :name %>
+<%= f.input :description %>
+<%= f.input :solar_system %>
+<%= f.input :category %>
+<%= f.input :size %>
+<%= f.input :price %>
+
+
+<%= f.submit "Create a Planet", class: "btn btn-primary"%>
+<% end %>
