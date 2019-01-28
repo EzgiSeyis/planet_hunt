@@ -1,35 +1,52 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://unsplash.com/photos/zpUsOQzByFg/download?force=true'); background-position: 3px;">
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://unsplash.com/photos/zpUsOQzByFg/download?force=true/download?force=true');">
+  <div class="banner-content">
+    <h1><%= @planet.name %></h1>
+    <p>Planet in <%= @planet.solar_system %> solar system </p>
+    <a class="btn btn-primary btn-lg">Book now</a>
+  </div>
+</div>
 
-<h1><strong> Name:  </strong><%= @planet.name %></h1>
-<h3><strong> Description: </strong><%= @planet.description %></h3>
-<h3><strong>Solar System:  </strong> <%= @planet.solar_system %></h3>
-<h3><strong>Category: </strong> <%= @planet.category %></h3>
-<h3><strong>Size: </strong> <%= @planet.size %></h3>
-<h3><strong>Price: </strong> <%= @planet.price %> Mio $</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"><h1>Name: </h1></div>
+    <div class="col-sm-8"><h3><%= @planet.name %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
 
-<%#= link_to " ", _path %> <br>
+  <div>
+    <div class="col-sm-4"><h3>Description: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
 
+  <div>
+    <div class="col-sm-4"><h3>Solar System: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.solar_system %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
-</style>
-<table class="tg">
-  <tr>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-    <th class="tg-031e"></th>
-  </tr>
+  <div>
+    <div class="col-sm-4"><h3>Category: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.category %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
 
-  <tr>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-    <td class="tg-031e"></td>
-  </tr>
-</table>
-<span style='font-size:9px;'>Erstellt mit dem HTML Tabellen Generator von <a href='https://netgrade.de/'>netgrade</a></span>
+  <div>
+    <div class="col-sm-4"><h3>Size: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.size %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Price: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.price %> Mio $</h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+</div>
+
