@@ -7,10 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 planet_category = ['Ice planet', 'Lava planet', 'Earth analog', 'Ocean planet', 'Gas giant', 'Dwarf planet', 'Iron planet']
-
+planet_description = ["An Earth-like planet with several large continents. Deserts cover 60 percent of the planet's landmass.",
+"An Earth-like planet with an atmosphere that is not breathable to humans due to low oxygen levels and unusually large amounts of argon. There are no oceans or continents, but the surface is littered with lakes and small seas.",
+"A large gas giant with an atmosphere mostly composed of methane. Wind speeds can reach 1,800 km/h in the upper atmosphere.",
+"A small planet on the inner edge of its system's habitable zone. The entire planet is covered by a single giant photosynthetic organism, which the inhabitants of a nearby world worship as a god.",
+"A small Earth-like planet with a rich oxygen atmosphere. Countless tiny islands are scattered throughout the planet's shallow seas, but there are no large continents."
+]
 
 testuser = User.new(email: 'test@testmail.com', first_name: 'Max', last_name: 'Mustermann', password: '123test', password_confirmation: '123test')
 
-10.times do
-  Planet.create(name: Faker::Space.star, description: 'An Earth-like planet with an unusually large axial tilt causing extreme seasonal changes. Both the northern and southern hemispheres experience harsh winters, with cold nights that can last for weeks or months at a time depending on latitude. The atmosphere is composed mostly of nitrogen and oxygen, but high levels of carbon dioxide and carbon monoxide make it lethal to humans. The most advanced form of life on this planet is a type of fungus.', solar_system: Faker::Space.galaxy, category: planet_category.sample, size: rand(10000..100000), price: rand(100..999), photo: 'https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260', user: testuser)
+12.times do
+  Planet.create(name: Faker::Space.star, description: planet_description.sample, solar_system: Faker::Space.galaxy, category: planet_category.sample, size: rand(10000..100000), price: rand(100..999), remote_photo_url: 'https://apod.nasa.gov/apod/image/1407/m31_bers_960.jpg', user: testuser)
 end

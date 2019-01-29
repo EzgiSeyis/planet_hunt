@@ -1,5 +1,5 @@
 class PlanetsController < ApplicationController
-  before_action :set_planet, only: [:show, :edit, :update]
+  before_action :set_planet, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -35,6 +35,12 @@ class PlanetsController < ApplicationController
       redirect_to planet_path(@planet)
     else render :edit
     end
+  end
+
+  def destroy
+    authorize @planet
+    @planet.destroy
+    redirect_to planets_path
   end
 
   private
