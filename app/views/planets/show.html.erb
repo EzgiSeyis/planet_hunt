@@ -1,0 +1,52 @@
+<div class="banner banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @planet.photo %>);">
+  <div class="banner-content">
+    <h1><%= @planet.name %></h1>
+    <p>Planet in <%= @planet.solar_system %> solar system </p>
+    <a class="btn btn-primary btn-lg">Book now</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4"><h1>Name: </h1></div>
+    <div class="col-sm-8"><h3><%= @planet.name %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Description: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Solar System: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.solar_system %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Category: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.category %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Size: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.size %></h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+
+  <div>
+    <div class="col-sm-4"><h3>Price: </h3></div>
+    <div class="col-sm-8"><h3><%= @planet.price %> Mio $</h3></div>
+  </div>
+  <!-- Force next columns to break to new line -->
+  <div class="w-100"></div>
+</div>
+
