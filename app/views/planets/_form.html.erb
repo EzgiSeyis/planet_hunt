@@ -4,7 +4,7 @@
 <%= f.input :name %>
 <%= f.input :description %>
 <%= f.input :solar_system %>
-<%= f.input :category %>
+<%= f.input :category, collection: [ 'Double planet','Earth analog', 'Exoplanet', 'Gas giant', 'Ice planet', 'Iron planet', 'Lava planet', 'Ocean planet', 'Protoplanet', 'Terrestrial planet'] %>
 <%= f.input :size %>
 <%= f.input :price %>
 <%= f.input :photo %>
