@@ -1,4 +1,4 @@
-<div class="banner banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @planet.photo %>);">
+<div class="banner banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.3) 0%, rgba(0,36,61,0.3) 50%), url(<%= @planet.photo %>);">
   <div class="banner-content">
     <h1><%= @planet.name %></h1>
     <p>Planet in <%= @planet.solar_system %> solar system </p>
@@ -6,14 +6,8 @@
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4"><h1>Name: </h1></div>
-    <div class="col-sm-8"><h3><%= @planet.name %></h3></div>
-  </div>
-  <!-- Force next columns to break to new line -->
-  <div class="w-100"></div>
-
+<div id="show_planet_container" class="container">
+  <br>
   <div>
     <div class="col-sm-4"><h3>Description: </h3></div>
     <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
@@ -48,5 +42,16 @@
   </div>
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
+
+  <!-- show delete Icon only if owner of planet -->
+  <% if policy(@planet).destroy? %>
+    <%= link_to planet_path(@planet), method: :delete, :data => {:confirm => 'Are you sure?'} do %>
+      <i class="fas fa-trash"></i> <!-- https://fontawesome.com/icons?d=gallery&q=delete -->
+    <% end %>
+  <% end %>
+
+  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+  <%= link_to "Back to Home", planets_path, class:"btn btn-primary"%>
 </div>
+
 
