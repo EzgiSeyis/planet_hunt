@@ -2,7 +2,7 @@
   <div class="banner-content">
     <h1><%= @planet.name %></h1>
     <p>Planet in <%= @planet.solar_system %> solar system </p>
-    <a class="btn btn-primary btn-lg">Book now</a>
+    <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 
