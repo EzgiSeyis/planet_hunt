@@ -3,19 +3,21 @@ class PlanetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @planets = Planet.all
+    @planets = policy_scope(Planet).order(created_at: :desc)
   end
 
-
   def show
+    authorize @planet
   end
 
   def new
     @planet = Planet.new
+    authorize @planet
   end
 
   def create
     @planet = Planet.new(planet_params)
+    authorize @planet
     if @planet.save!
       redirect_to planet_path(@planet)
     else
@@ -24,9 +26,11 @@ class PlanetsController < ApplicationController
   end
 
   def edit
+    authorize @planet
   end
 
   def update
+    authorize @planet
     if @planet.update(planet_params)
       redirect_to planet_path(@planet)
     else render :edit
