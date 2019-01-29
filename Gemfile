@@ -17,7 +17,10 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'devise'
 gem 'faker'
-gem "pundit"
+gem 'pundit'
+gem 'dotenv-rails', groups: %i[development test]
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
