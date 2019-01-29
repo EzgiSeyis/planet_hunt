@@ -1,7 +1,7 @@
 .banner {
   color: white;
   text-align: center;
-  height: 50vh;
+  min-height: 50vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
@@ -9,20 +9,21 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 50px;
+  font-size: 100px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .banner p {
   font-size: 25px;
-  font-weight: lighter;
+  font-weight: 400;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
+  opacity: 0.8;
   margin-bottom: 30px;
+  text-shadow: 2px 2px 1px black;
 }
 
 // Überschreibung von standard banner Klass (height: 50vh)
 .banner-show
 {
-  height: 60vh !important;
+  min-height: 60vh;
 }
