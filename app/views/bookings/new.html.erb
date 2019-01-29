@@ -1,0 +1,31 @@
+<!-- Banner -->
+<div class="banner banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= @planet.photo %>);">
+  <div class="banner-content">
+    <h1><%= @planet.name %></h1>
+    <p>Planet in <%= @planet.solar_system %> solar system </p>
+  </div>
+</div>
+
+<!-- Form -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+      <h3>Enter your booking details:</h3>
+      <div></div>
+      <%= simple_form_for([@planet, @booking]) do |f| %>
+
+      <div class="form-inputs">
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
+        <%= f.input :message %>
+      </div>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :planet_id, value: params[:planet_id] %>
+      <%= f.submit class: "btn btn-primary", value: "Book now"%>
+    </div>
+    <% end %>
+
+  </div>
+</div>
+</div>
+
