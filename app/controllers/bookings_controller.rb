@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     authorize @booking
     @booking.user = current_user
+    @booking.status = "Pending"
     @booking.save
     redirect_to planet_path(params[:planet_id])
   end
@@ -18,6 +19,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :message, :user_id, :planet_id)
+    params.require(:booking).permit(:start_date, :end_date, :message, :user_id, :planet_id, :status)
   end
 end

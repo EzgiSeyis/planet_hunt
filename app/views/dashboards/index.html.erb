@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Dashboard for User <%= current_user.first_name %> <%= current_user.last_name %></h1>
+
+  <h2>My own Planets:</h2>
+  <div class="row">
+    <% @my_planets.each do |planet| %>
+    <%= link_to planet_path(planet) do %>
+    <div class="col-xs-12 col-sm-4 col-lg-3">
+      <div class="card" style="background-image: url( <%= planet.photo %>);">
+       <span class="card-description"> <h2><%= planet.name %></h2></span>
+     </div>
+     <% end %>
+   </div>
+   <% end %>
+ </div>
+
+ <h2>My Booking Requests:</h2>
+ <% @my_planets.each do |planet| %>
+ <% if planet.bookings.empty? == false %>
+ <%  planet.bookings.each do |booking| %>
+ <h4>User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+ <p><strong>His Message: </strong><er><%= booking.message %></er></p>
+ <% end %>
+ <% end %>
+ <% end %>
