@@ -2,12 +2,12 @@
   <div class="banner-content">
     <h1><%= @planet.name %></h1>
     <p>Planet in <%= @planet.solar_system %> solar system </p>
-    <a class="btn btn-primary btn-lg">Book now</a>
-      <!-- show delete Icon only if owner of planet -->
-  <% if policy(@planet).edit? %>
+    <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>      <!-- show delete Icon only if owner of planet -->
+    <% if policy(@planet).edit? %>
     <%= link_to "Edit #{@planet.name}", edit_planet_path, class:"btn btn-primary btn-lg"%>
     <%#= link_to planet_path(@planet), method: :edit %>
     <% end %>
+
   </div>
 </div>
 
