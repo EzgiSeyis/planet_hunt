@@ -51,12 +51,18 @@
   <div class="w-100"></div>
 
   <h4>Reviews</h4>
-  <% @reviews.each do |review| %>
-    <li> "<%= review.content %>" | <%= review.rating %></li>
+  <% @planet.reviews.each do |review| %>
+  <li> "<%= review.content %>" | <%= review.rating %></li>
   <% end %>
   <br>
-  <%= link_to new_booking_review_path(@booking) do %>
-    <i class="fa fa-comment"></i>
+  <% if @booking.nil? == false %>
+    <% if policy(@booking).create? %>
+      <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
+        <div>
+          <i class="fa fa-comment"></i> Reviews
+        </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
