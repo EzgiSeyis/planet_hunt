@@ -3,7 +3,11 @@ class PlanetsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @planets = policy_scope(Planet).order(created_at: :desc)
+    if user_signed_in?
+      @planets = policy_scope(Planet).where.not(user: current_user).order(created_at: :desc)
+    else
+      @planets = policy_scope(Planet).order(created_at: :desc)
+    end
   end
 
   def show
