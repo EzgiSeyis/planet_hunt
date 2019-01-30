@@ -50,14 +50,4 @@
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
 
-  <h4>Reviews</h4>
-  <% @reviews.each do |review| %>
-    <li> "<%= review.content %>" | <%= review.rating %></li>
-  <% end %>
-  <br>
-  <%= link_to new_booking_review_path(@booking) do %>
-    <i class="fa fa-comment"></i>
-  <% end %>
-</div>
-
 
