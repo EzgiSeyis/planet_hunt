@@ -22,11 +22,14 @@
         </div>
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :planet_id, value: params[:planet_id] %>
+        <div> Price per day: <span id="planet-price"><%= @planet.price %></span>  </div>
+        <div id="booking-total"></div>
         <%= f.submit class: "btn btn-primary", value: "Book now"%>
       </div>
       <% end %>
-
     </div>
   </div>
 </div>
 
+
+<%= javascript_pack_tag 'booking' %>
