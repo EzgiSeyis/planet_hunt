@@ -2,7 +2,12 @@
   <div class="banner-content">
     <h1><%= @planet.name %></h1>
     <p>Planet in <%= @planet.solar_system %> solar system </p>
-    <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>
+    <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>      <!-- show delete Icon only if owner of planet -->
+    <% if policy(@planet).edit? %>
+    <%= link_to "Edit #{@planet.name}", edit_planet_path, class:"btn btn-primary btn-lg"%>
+    <%#= link_to planet_path(@planet), method: :edit %>
+    <% end %>
+
   </div>
 </div>
 
@@ -44,16 +49,6 @@
   </div>
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
-
-  <!-- show delete Icon only if owner of planet -->
-  <% if policy(@planet).destroy? %>
-    <%= link_to planet_path(@planet), method: :delete, :data => {:confirm => 'Are you sure?'} do %>
-      <i class="fas fa-trash"></i> <!-- https://fontawesome.com/icons?d=gallery&q=delete -->
-    <% end %>
-  <% end %>
-
-  <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-  <%= link_to "Back to Home", planets_path, class:"btn btn-primary"%>
 </div>
 <%= console %>
 
