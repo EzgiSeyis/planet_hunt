@@ -18,6 +18,11 @@
       <div class="dropdown">
         <%= cl_image_tag current_user.photo, :width =>300, :height => 300, :crop => :thumb, :gravity => :face, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+           <li>
+          <%= link_to user_path(current_user.id) do %>
+          <i class="fas fa-user"></i> <%= "My Profile" %>
+          <% end %>
+        </li>
           <li>
             <%= link_to edit_user_registration_path do %>
             <i class="fas fa-user-circle"></i> <%= "Edit Profile" %>
@@ -48,6 +53,7 @@
         <li><%= link_to "Dashboard", '#', class: "navbar-wagon-item navbar-wagon-link" %></li>
 
         <% if user_signed_in? %>
+
         <li>
           <%= link_to edit_user_registration_path do %>
           <i class="fas fa-user-circle"></i> <%= "Edit Profile" %>
