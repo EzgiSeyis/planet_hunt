@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user! # , except: [:index, :show]
 
+  def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
+  end
+
   def new
     @booking = Booking.new
     @planet = Planet.find(params[:planet_id])
@@ -13,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.status = "Pending"
     @booking.save
-    redirect_to planet_path(params[:planet_id])
+    redirect_to planet_booking_path(params[:planet_id], @booking.id)
   end
 
   def accept

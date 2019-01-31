@@ -1,25 +1,15 @@
-.green {
-  color: #2DA386;
-}
-
-.red {
-  color: #EC4844;
-}
-
-.dashboard {
+.form-container {
   margin: 20px 0 50px 0;
   padding: 20px;
-  // background-color: rgba(12, 23, 63, 0.5);
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   box-shadow: 4px 4px 16px -6px rgba(0,0,0,0.75);
 }
 
-.dashboard-area {
+.form-area {
   padding: 10px;
   margin: 10px;
   background-color: white;
   border-radius: 4px;
   box-shadow: 4px 4px 16px -6px rgba(0,0,0,0.4);
 }
-
