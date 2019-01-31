@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-params.require(:review).permit(:email)
+    params.require(:review).permit(:content, :rating)
   end
 
   def find_review
