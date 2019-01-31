@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'reviews/create'
   devise_for :users
   resources :planets do
-    resources :bookings, only: [:new, :create]
+    resources :bookings, only: [:new, :create, :show]
   end
   resources :bookings, only: [] do
     member do
