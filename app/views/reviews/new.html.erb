@@ -1,10 +1,25 @@
-<%= simple_form_for [@booking, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
 
-<div class="flex-between">
-  <%= link_to "Home", planets_path, class:"btn btn-primary btn-lg"%>
-  <%= f.submit "add a review", class: "btn btn-primary" %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+
+<div class="from_background">
+<%= simple_form_for [@booking, @review] do |f| %>
+<%= f.input :content %>
+<br>
+<%= f.input :rating, input_html: { data: { 'slider-min' => "1", 'slider-max' => "5"}} %>
+
+
+
+
+   <!--  <div class="flex-between"> -->
+    <%= link_to "Home", planets_path, class:"btn btn-primary btn-lg"%>
+    <%= f.submit "add a review", class:"btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
+</div>
+ </div>
+
 </div>
 
-<% end %>
