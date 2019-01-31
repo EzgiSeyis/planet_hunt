@@ -10,7 +10,7 @@
       <% if policy(@user).update? %>
       <%= form_for @user do |f| %>
       <%= f.text_area :description, rows:"4"%>
-      <%= f.submit "Edit"%>
+      <%= f.submit "Save", class: "btn btn-primary" %>
       <% end %>
       <% else %>
       <p><%= @user.description %></p>
