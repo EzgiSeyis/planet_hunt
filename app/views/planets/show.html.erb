@@ -51,7 +51,7 @@
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
 
-  <% if @planet.reviews.empty? == false %> prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ...
+  <% if @planet.reviews.empty? == false %> <!-- prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ... -->
     <h4>Reviews</h4>
     <% @planet.reviews.each do |review| %>
     <li> "<%= review.content %>" | <%= review.rating %></li>
