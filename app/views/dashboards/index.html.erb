@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container dashboard">
   <h1>Dashboard for User <%= current_user.first_name %> <%= current_user.last_name %></h1>
 
   <h2>My own Planets:</h2>
@@ -14,16 +14,42 @@
    <% end %>
  </div>
 
- <h2>My Booking Requests:</h2>
+ <h2>Pending Booking Requests:</h2>
  <% @my_planets.each do |planet| %>
  <% if planet.bookings.empty? == false %>
  <%  planet.bookings.each do |booking| %>
+   <% if booking.status == "Pending" %>
    <h4>User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
    <p><strong>His Message: </strong><er><%= booking.message %></er></p>
-   <% unless booking.accepted? %>
     <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn btn-success btn-xs" %>
     <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn btn-danger btn-xs" %>
    <% end %>
-<% end %>
+  <% end %>
  <% end %>
  <% end %>
+
+<h2>Accepted Booking Requests:</h2>
+ <% @my_planets.each do |planet| %>
+ <% if planet.bookings.empty? == false %>
+ <%  planet.bookings.each do |booking| %>
+   <% if booking.status == "Accepted" %>
+   <h4 class="green">User <strong><%= booking.user.last_name %></strong> has booked your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+   <p>His Message: <er><%= booking.message %></er></p>
+   <% end %>
+  <% end %>
+ <% end %>
+ <% end %>
+
+<h2>Declined Booking Requests:</h2>
+ <% @my_planets.each do |planet| %>
+ <% if planet.bookings.empty? == false %>
+ <%  planet.bookings.each do |booking| %>
+   <% if booking.status == "Declined" %>
+   <h4 class="red">User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+   <p>His Message: <er><%= booking.message %></er></p>
+   <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn btn-success btn-xs" %>
+   <% end %>
+  <% end %>
+ <% end %>
+ <% end %>
+</div>
