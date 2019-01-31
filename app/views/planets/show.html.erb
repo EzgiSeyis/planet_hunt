@@ -50,6 +50,7 @@
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
 
+
   <h4>Reviews</h4>
   <% @planet.reviews.each do |review| %>
   <li> "<%= review.content %>" | <%= review.rating %></li>
@@ -66,4 +67,7 @@
   <% end %>
 </div>
 
+<% if !policy(@planet).edit? %>
+<%= link_to "The Owner", user_path(@planet.user_id), class:"btn btn-primary btn-lg"%>
+<% end %>
 

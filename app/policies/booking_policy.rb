@@ -12,4 +12,12 @@ class BookingPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def accept?
+    record.planet.user == user
+  end
+
+  def decline?
+    record.planet.user == user
+  end
 end
