@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.planet.user != user # user == ist der Curent user . Check ob der Plannet User = curennt user
   end
 
   def accept?
