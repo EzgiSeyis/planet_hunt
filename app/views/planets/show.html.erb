@@ -65,9 +65,12 @@
       <% end %>
     <% end %>
   <% end %>
+  <div>
+  <% if !policy(@planet).edit? %>
+<%= link_to "Show Owner", user_path(@planet.user_id), class: "btn btn-primary" %>
+<% end %>
+</div>
 </div>
 
-<% if !policy(@planet).edit? %>
-<%= link_to "The Owner", user_path(@planet.user_id), class:"btn btn-primary btn-lg"%>
-<% end %>
+
 
