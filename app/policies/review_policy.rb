@@ -6,7 +6,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    (is_the_guest? || is_the_owner?) && record.booking.status == "Accepted"
+    (is_the_guest? || is_the_owner?) && record.booking.accepted? && first_review?
   end
 
   private
@@ -17,5 +17,9 @@ class ReviewPolicy < ApplicationPolicy
 
   def is_the_owner?
     record.user == record.booking.planet.user # check if user is the owner of the planet booked
+  end
+
+  def first_review?
+    record.booking.review.nil?
   end
 end
