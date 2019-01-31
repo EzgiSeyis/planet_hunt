@@ -6,7 +6,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    is_the_guest? || is_the_owner?
+    (is_the_guest? || is_the_owner?) && record.booking.status == "Accepted"
   end
 
   private

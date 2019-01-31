@@ -2,12 +2,13 @@
   <div class="banner-content">
     <h1><%= @planet.name %></h1>
     <p>Planet in <%= @planet.solar_system %> solar system </p>
-    <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>      <!-- show delete Icon only if owner of planet -->
+    <% if policy(Booking.new(planet: @planet)).create? %> <!-- prüft ob der Booking link angezigt werden darf -->
+      <%= link_to "Book now", new_planet_booking_path(@planet), class: "btn btn-primary btn-lg" %>      <!-- show delete Icon only if owner of planet -->
+    <% end %>
     <% if policy(@planet).edit? %>
     <%= link_to "Edit #{@planet.name}", edit_planet_path, class:"btn btn-primary btn-lg"%>
     <%#= link_to planet_path(@planet), method: :edit %>
     <% end %>
-
   </div>
 </div>
 
@@ -50,14 +51,15 @@
   <!-- Force next columns to break to new line -->
   <div class="w-100"></div>
 
-
-  <h4>Reviews</h4>
-  <% @planet.reviews.each do |review| %>
-  <li> "<%= review.content %>" | <%= review.rating %></li>
+  <% if @planet.reviews.empty? == false %> <!-- prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ... -->
+    <h4>Reviews</h4>
+    <% @planet.reviews.each do |review| %>
+    <li> "<%= review.content %>" | <%= review.rating %></li>
+    <% end %>
   <% end %>
   <br>
   <% if @booking.nil? == false %>
-    <% if policy(@booking).create? %>
+    <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
       <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
         <div>
           <i class="fa fa-comment"></i> Reviews
