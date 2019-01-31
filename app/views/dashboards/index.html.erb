@@ -18,8 +18,12 @@
  <% @my_planets.each do |planet| %>
  <% if planet.bookings.empty? == false %>
  <%  planet.bookings.each do |booking| %>
- <h4>User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
- <p><strong>His Message: </strong><er><%= booking.message %></er></p>
- <% end %>
+   <h4>User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+   <p><strong>His Message: </strong><er><%= booking.message %></er></p>
+   <% unless booking.accepted? %>
+    <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn btn-success btn-xs" %>
+    <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn btn-danger btn-xs" %>
+   <% end %>
+<% end %>
  <% end %>
  <% end %>
