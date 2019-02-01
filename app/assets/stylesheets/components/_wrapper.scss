@@ -1,4 +1,8 @@
 .wrapper {
-  margin: 0 0 100px 0;
-  background-image: image-url("cartoonspace.png");
+  background-image: url("https://images.pexels.com/photos/29435/landscape-sky-night-stars-29435.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover !important;
+  width: 100vw;
+  min-height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
 }

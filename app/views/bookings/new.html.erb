@@ -27,7 +27,7 @@
         <%= f.hidden_field :planet_id, value: params[:planet_id] %>
         <div> Price per day: $<span id="planet-price"><%= @planet.price %></span>  </div>
         <div id="booking-total"></div>
-        <%= f.submit class: "btn btn-primary", value: "Book now"%>
+        <%= f.submit class: "btn full_btn", value: "Book now"%>
       </div>
       <% end %>
     </div>

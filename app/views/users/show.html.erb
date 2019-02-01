@@ -6,6 +6,7 @@
         <div id="profile-background">
           <%= cl_image_tag @user.photo, :width =>300, :height => 300, :crop => :thumb, :gravity => :face, class: "profile-pic" %>
           <br>
+
           <div class="description">
             <h3><%= @user.first_name %> <%= @user.last_name %></h3>
             on board since:
@@ -15,15 +16,13 @@
             <%= f.text_area :description, rows:"4", cols:"28"%>
             <br>
             <br>
-            <%= f.submit "Save", class: "btn btn-primary" %>
+            <%= f.submit "Save", class: "btn full_btn" %>
             <% end %>
             <% else %>
             <p><%= @user.description %></p>
             <% end %>
           </div>
-
         </div>
-
       </div>
     </div>
     <div class="row">

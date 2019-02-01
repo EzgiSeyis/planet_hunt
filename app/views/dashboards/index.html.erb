@@ -23,10 +23,10 @@
    <div class="dashboard-area">
       <h3>Pending Booking Requests:</h3>
        <% @my_bookings_as_owner.pendings.each do |booking| %>
-           <h4>User</h4> <strong><%= booking.user.last_name %></strong> Planet: <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+           <h6>User</h6> <strong><%= booking.user.last_name %></strong> Planet: <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h6>
             <p><strong>Message: </strong><er><%= booking.message %></er></p>
-           <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn btn-success btn-xs" %>
-           <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn btn-danger btn-xs" %>
+           <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn full_btn btn-xs" %>
+           <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn half_btn btn-xs" %>
          <% end %>
          </div>
     <% end %>
@@ -35,7 +35,7 @@
     <div class="dashboard-area">
      <h3>You accepted following requests:</h3>
      <% @my_bookings_as_owner.accepted.each do |booking| %>
-       <h4 class="green"><strong><%= booking.user.last_name %></strong> has booked your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+       <h6 class="green"><strong><%= booking.user.last_name %></strong> has booked your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h6>
        <p>Message: <er><%= booking.message %></er></p>
      <% end %>
      </div>
@@ -45,7 +45,7 @@
     <div class="dashboard-area">
       <h3>You declined following requests:</h3>
       <% @my_bookings_as_owner.declined.each do |booking| %>
-        <h4 class="red">User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
+        <h6 class="red">User <strong><%= booking.user.last_name %></strong> wants to rent your planet <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h6>
         <p>Message: <er><%= booking.message %></er></p>
       <% end %>
       </div>
@@ -57,14 +57,14 @@
        <h3>Your own bookings:</h3>
         <% @my_own_bookings.each do |booking| %>
         <% if booking.status == "Accepted"  %>
-          <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %>, <%= booking.planet.user.last_name %>, <%= booking.status %>
+          <h6>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %>, <%= booking.planet.user.last_name %>, <%= booking.status %>
             <%= link_to 'Post a review', new_booking_review_path(booking) %>
-          </h4>
-          <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h4>
+          </h6>
+          <h6>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h6>
         <% elsif booking.status == "Pending" %>
-          <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h4>
+          <h6>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h6>
         <% elsif booking.status == "Declined" %>
-          <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h4>
+          <h6>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h6>
           <% end %>
         <% end %>
         </div>

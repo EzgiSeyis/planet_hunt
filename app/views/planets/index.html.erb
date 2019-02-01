@@ -22,17 +22,19 @@
       <% @planets.each do |planet| %>
         <%= link_to planet_path(planet) do %>
           <div class="col-xs-12 col-sm-4 col-lg-3">
-            <div class="card" style="background-image: url( <%= planet.photo %>);">
-              <span class="card-description"> <h2><%= planet.name %></h2></span>
+            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= planet.photo %>);">
+            <div class="card-description">
+              <h2><%= planet.name %></h2>
+              <p><%= planet.user.first_name %> <%= planet.user.last_name %></p>
             </div>
+            <a class="card-link" href="<%= planet_path(planet.id) %>" ></a>
+          </div>
           </div>
         <% end %>
       <% end %>
     <% else %>
       <p>No results for solar system <%= params[:query] %></p>
-
     <% end %>
-
   </div>
 </div>
 
