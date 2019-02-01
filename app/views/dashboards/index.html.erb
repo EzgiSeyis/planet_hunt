@@ -57,6 +57,9 @@
        <h3>Your own bookings:</h3>
         <% @my_own_bookings.each do |booking| %>
         <% if booking.status == "Accepted"  %>
+          <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %>, <%= booking.planet.user.last_name %>, <%= booking.status %>
+            <%= link_to 'Post a review', new_booking_review_path(booking) %>
+          </h4>
           <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h4>
         <% elsif booking.status == "Pending" %>
           <h4>Planet: <%= booking.planet.name %>, Owner: <%= booking.planet.user.first_name %> <%= booking.planet.user.last_name %>, <%= booking.status %></h4>
