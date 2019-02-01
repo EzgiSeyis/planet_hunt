@@ -1,18 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
-      <h1>Edit a Planet</h1>
+  <div class="from_background">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+        <h1>Edit a Planet</h1>
 
-      <%= render 'form' %>
+        <%= render 'form' %>
 
-      <br>
-      <div class="flex-between">
-      <%= link_to planet_path(@planet), method: :delete, :data => {:confirm => 'Are you sure?'}, class:"btn btn-danger" do %>
-      <div> <i class="fas fa-trash"></i> Delete</div>  <!-- https://fontawesome.com/icons?d=gallery&q=delete -->
-      <% end %>
-      <%= link_to "Back to Planet", planet_path(@planet), class: "btn btn-primary" %>
-    </div>
+        <br>
+        <div class="flex-between">
+        <%= link_to planet_path(@planet), method: :delete, :data => {:confirm => 'Are you sure?'}, class:"btn btn-danger" do %>
+        <div> <i class="fas fa-trash"></i> Delete</div>  <!-- https://fontawesome.com/icons?d=gallery&q=delete -->
+        <% end %>
+        <%= link_to "Back to Planet", planet_path(@planet), class: "btn btn-primary" %>
+      </div>
+      </div>
     </div>
   </div>
-
 </div>
