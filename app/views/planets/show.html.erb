@@ -73,7 +73,7 @@
       <br>
       <div class="flex">
         <% if @booking.nil? == false %>
-          <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
+          <% if policy(Review.new(booking: @booking, user: current_user)).create? %>
             <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
               <div>
                 <i class="fa fa-comment"></i> Reviews
