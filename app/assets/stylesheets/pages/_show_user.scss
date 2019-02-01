@@ -2,11 +2,16 @@
   text-align: center;
 }
 #profile-background {
-  background-color: #DCE2E6;
-  text-align: center;
+  display: flex;
+  justify-content: space-around;
   padding: 20px;
 }
 
 #user_description {
   width: 100%;
 }
+
+.profile-pic{
+  border-radius: 50%;
+}
+
