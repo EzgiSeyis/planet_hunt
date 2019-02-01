@@ -6,7 +6,7 @@
 <%= f.input :solar_system %>
 <%= f.input :category, collection: [ 'Double planet','Earth analog', 'Exoplanet', 'Gas giant', 'Ice planet', 'Iron planet', 'Lava planet', 'Ocean planet', 'Protoplanet', 'Terrestrial planet'] %>
 <%= f.input :size %>
-<%= f.input :price %>
+<%= f.input :price, label: "Price (€)", input_html: {data: {"slider-min" => 0, "slider-max" => 999 }} %>
 <%= f.input :photo %>
 <%= f.input :photo_cache, as: :hidden %>
  </div>

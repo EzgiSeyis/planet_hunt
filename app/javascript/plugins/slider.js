@@ -1,9 +1,9 @@
 import "bootstrap-slider"
 import 'bootstrap-slider/dist/css/bootstrap-slider.css'
 
-const init_slider = () => {
+const init_slider = (id) => {
   // With JQuery
-  $('#review_rating').slider({
+  $(id).slider({
     tooltip: 'always',
     formatter: function(value) {
       return value;
