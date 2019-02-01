@@ -1,5 +1,6 @@
 // Specific CSS for your home-page
 #search-form {
+
   align-items: center
 }
 
@@ -27,6 +28,7 @@
 #search-form-home {
   align-items: center;
   position: absolute;
+  margin-top: 50px;
   z-index: 1;
 }
 
@@ -35,10 +37,12 @@
   flex-direction: column;
   justify-content: space-around;
   height: 100vh;
+
 }
 
 #home-search-flex {
   width: 100vw;
   display: flex;
   justify-content: space-around;
+
 }
