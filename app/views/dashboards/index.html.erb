@@ -25,8 +25,8 @@
        <% @my_bookings_as_owner.pendings.each do |booking| %>
            <h4>User</h4> <strong><%= booking.user.last_name %></strong> Planet: <strong><%= booking.planet.name %></strong> from <strong><%= booking.start_date %></strong> to <strong><%= booking.end_date %></strong></h4>
             <p><strong>Message: </strong><er><%= booking.message %></er></p>
-           <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn btn-success btn-xs" %>
-           <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn btn-danger btn-xs" %>
+           <%= link_to "Accept", accept_booking_path(booking), method: :put, class: "btn full_btn btn-xs" %>
+           <%= link_to "Decline", decline_booking_path(booking), method: :put, class: "btn half_btn btn-xs" %>
          <% end %>
          </div>
     <% end %>
