@@ -8,6 +8,10 @@ class PlanetsController < ApplicationController
     else
       @planets = policy_scope(Planet).order(created_at: :desc)
     end
+
+    if params[:query].present? # query = die suche....
+      @planets = @planets.where(solar_system: params[:query]) # filer solar_system
+    end
   end
 
   def show

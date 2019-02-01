@@ -3,12 +3,23 @@
     <h1>Planet Hunt</h1>
     <h2>Rent a planet today!</h2>
     <br>
+    <!-- ------------search----------------- -->
+    <%= form_tag planets_path, method: :get, class: 'inline-form' do %>
+      <%= select_tag(
+            :query,
+            options_for_select(Planet.pluck(:solar_system).uniq),
+            class: "form-control", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
+      ) %>
+      <%= submit_tag("Search", class: "btn btn-primary") %>
+    <% end %>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
+    <% if @planets.any? %>
 
-    <% @planets.each do |planet| %>
+      <% @planets.each do |planet| %>
         <%= link_to planet_path(planet) do %>
           <div class="col-xs-12 col-sm-4 col-lg-3">
             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url( <%= planet.photo %>);">
@@ -21,6 +32,10 @@
           </div>
           </div>
         <% end %>
+      <% end %>
+    <% else %>
+      <p>No results for solar system <%= params[:query] %></p>
+
     <% end %>
 
   </div>
