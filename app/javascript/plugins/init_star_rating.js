@@ -6,5 +6,13 @@ const initStarRating = () => {
     theme: 'css-stars'
   });
 };
-export { initStarRating };
+
+const initStarRatingReadOnly = () => {
+  $('.review-planet > select').barrating({
+    theme: 'css-stars',
+    readonly: true
+  });
+};
+
+export { initStarRating, initStarRatingReadOnly };
 
