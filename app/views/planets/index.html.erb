@@ -27,7 +27,6 @@
               <h2><%= planet.name %></h2>
               <p><%= planet.user.first_name %> <%= planet.user.last_name %></p>
             </div>
-
             <a class="card-link" href="<%= planet_path(planet.id) %>" ></a>
           </div>
           </div>
@@ -35,9 +34,7 @@
       <% end %>
     <% else %>
       <p>No results for solar system <%= params[:query] %></p>
-
     <% end %>
-
   </div>
 </div>
 

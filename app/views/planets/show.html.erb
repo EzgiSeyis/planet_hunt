@@ -12,86 +12,84 @@
   </div>
 </div>
 
-
-
 <div id="show_planet_container" class="container">
   <div class="from_background">
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div>
-        <div class="col-sm-4"><h3>Description: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
-      </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div>
+          <div class="col-sm-4"><h3>Description: </h3></div>
+          <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
+        </div>
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Solar System: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.solar_system %></h3></div>
-      </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
+        <div>
+          <div class="col-sm-4"><h3>Solar System: </h3></div>
+          <div class="col-sm-8"><h3><%= @planet.solar_system %></h3></div>
+        </div>
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Category: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.category %></h3></div>
-      </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
+        <div>
+          <div class="col-sm-4"><h3>Category: </h3></div>
+          <div class="col-sm-8"><h3><%= @planet.category %></h3></div>
+        </div>
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Size: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.size %> m²</h3></div>
-      </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
+        <div>
+          <div class="col-sm-4"><h3>Size: </h3></div>
+          <div class="col-sm-8"><h3><%= @planet.size %> m²</h3></div>
+        </div>
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Price: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.price %> €</h3></div>
+        <div>
+          <div class="col-sm-4"><h3>Price: </h3></div>
+          <div class="col-sm-8"><h3><%= @planet.price %> €</h3></div>
+        </div>
+        <!-- Force next columns to break to new line -->
+        <div class="w-100"></div>
       </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
     </div>
-  </div>
-  <br>
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <% if @planet.reviews.empty? == false %> <!-- prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ... -->
-
-
-        <h4>Reviews</h4>
-        <ul class='list-unstyled'>
-          <% @planet.reviews.each do |review| %>
-            <li class='review-planet'>
-              <%= select_tag(:star, options_for_select((1..5), review.rating))  %>
-              <p><%= review.user.first_name %>: <%= review.content %></p>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-      <br>
-      <div class="flex">
-        <% if @booking.nil? == false %>
-          <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
-            <%= link_to new_booking_review_path(@booking.id), class: "btn full_btn" do %>
-              <div>
-                <i class="fa fa-comment"></i> Reviews
-              </div>
+    <br>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <% if @planet.reviews.empty? == false %> <!-- prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ... -->
+          <h4>Reviews</h4>
+          <ul class='list-unstyled'>
+            <% @planet.reviews.each do |review| %>
+              <li class='review-planet'>
+                <%= select_tag(:star, options_for_select((1..5), review.rating))  %>
+                <p><%= review.user.first_name %>: <%= review.content %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+        <br>
+        <div class="flex">
+          <% if @booking.nil? == false %>
+            <% if policy(Review.new(booking: @booking, user: current_user)).create? %>
+              <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
+                <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
+                  <%= link_to new_booking_review_path(@booking.id), class: "btn full_btn" do %>
+                  <% end %>
+                <% end %>
+                <div>
+                  <i class="fa fa-comment"></i> Reviews
+                </div>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
 
-        <div class="margin-left-2vw">
-          <% if !policy(@planet).edit? %>
-          <%= link_to "Show Owner", user_path(@planet.user_id), class: "btn full_btn" %>
-          <% end %>
+
+          <div class="margin-left-2vw">
+            <% if !policy(@planet).edit? %>
+              <%= link_to "Show Owner", user_path(@planet.user_id), class: "btn full_btn" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  </div>
 </div>
-
-
-

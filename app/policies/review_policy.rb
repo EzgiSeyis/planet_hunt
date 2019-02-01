@@ -20,6 +20,7 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def first_review?
-    record.booking.review.nil? || !record.booking.review.persisted?
+    Review.where(booking: record.booking).count.zero?
+    #record.booking.reviews.empty? || !record.booking.review.persisted?
   end
 end

@@ -16,8 +16,9 @@ class PlanetsController < ApplicationController
 
   def show
     authorize @planet
-    if current_user.nil? == false
-      @booking = Booking.where(planet_id: @planet.id, user_id: current_user.id).order(created_at: :desc).first # .id ist die Spalte und _id
+    if user_signed_in?
+      @booking = current_user.bookings.find_by(planet: @planet)
+      #@booking = Booking.where(planet_id: @planet.id, user_id: current_user.id).order(created_at: :desc).first # .id ist die Spalte und _id
     end
   end
 
