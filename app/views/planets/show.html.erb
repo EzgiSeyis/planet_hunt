@@ -16,44 +16,66 @@
 
 <div id="show_planet_container" class="container">
   <div class="from_background">
-  <div class="row">
-    <div class="col-xs-12 col-md-10 col-md-offset-1">
-      <div>
-        <div class="col-sm-4"><h3>Description: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.description %></h3></div>
-      </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
+    <div class="row">
 
-      <div>
-        <div class="col-sm-4"><h3>Solar System: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.solar_system %></h3></div>
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="description-block">
+          <div class="description-label">
+            <h4>Description:</h4>
+          </div>
+          <div class="description-content">
+            <p><%= @planet.description %></p>
+          </div>
+        </div>
       </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Category: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.category %></h3></div>
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="description-block">
+          <div class="description-label">
+            <h4>Solar System:</h4>
+          </div>
+          <div class="description-content">
+            <p><%= @planet.solar_system %></p>
+          </div>
+        </div>
       </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Size: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.size %> m²</h3></div>
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="description-block">
+          <div class="description-label">
+            <h4>Category:</h4>
+          </div>
+          <div class="description-content">
+            <p><%= @planet.category %></p>
+          </div>
+        </div>
       </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
 
-      <div>
-        <div class="col-sm-4"><h3>Price: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.price %> €</h3></div>
+
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="description-block">
+          <div class="description-label">
+            <h4>Size:</h4>
+          </div>
+          <div class="description-content">
+            <p><%= @planet.size %> m²</p>
+          </div>
+        </div>
       </div>
-      <!-- Force next columns to break to new line -->
-      <div class="w-100"></div>
-    </div>
-  </div>
+
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="description-block">
+          <div class="description-label">
+            <h4>Price: </h4>
+          </div>
+          <div class="description-content">
+            <p><%= @planet.price %> €</p>
+          </div>
+        </div>
+      </div>
+
+
+
   <br>
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -92,6 +114,5 @@
   </div>
   </div>
 </div>
-
-
+</div>
 

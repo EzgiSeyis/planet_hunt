@@ -3,3 +3,27 @@
 margin-bottom: 100px;
 }
 
+#flexing {
+  display: flex;
+    justify-content: space-around;
+  padding: 20px;
+}
+
+.description-block{
+  display: flex;
+}
+
+.description-label{
+  flex: 0 0 30%;
+/*   display: flex;
+  align-items: flex-start; */
+  h4 {
+    margin-top: 0;
+  }
+}
+
+.description-content{
+  flex: 0 0 70%;
+/*     display: flex;
+  align-items: flex-start; */
+}
