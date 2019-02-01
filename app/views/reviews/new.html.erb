@@ -3,23 +3,19 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="from_background">
+        <h3>Leave a review about planet <%= @booking.planet.name %></h3>
+        <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :content, as: :text, placeholder: "Write your review here ..." %>
+        <br>
+        <%= f.input :rating, as: :select, collection: (1..5) %>
 
-<div class="from_background">
-<%= simple_form_for [@booking, @review] do |f| %>
-<%= f.input :content %>
-<br>
-<%= f.input :rating, input_html: { data: { 'slider-min' => "1", 'slider-max' => "5"}} %>
-
-
-
-
-   <!--  <div class="flex-between"> -->
-    <%= link_to "Home", planets_path, class:"btn btn-primary btn-lg"%>
-    <%= f.submit "add a review", class:"btn btn-primary btn-lg" %>
-    <% end %>
+        <!--  <div class="flex-between"> -->
+          <%= f.submit "Add a review", class:"btn btn-primary" %>
+          <%= link_to "Go back to dashboard", dashboard_path, class:"btn btn-link"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
- </div>
-
-</div>
 

@@ -1,4 +1,7 @@
 import "bootstrap";
 
 import { init_slider } from "../plugins/slider.js";
-init_slider();
+
+
+import { initStarRating } from "../plugins/init_star_rating.js";
+initStarRating();
