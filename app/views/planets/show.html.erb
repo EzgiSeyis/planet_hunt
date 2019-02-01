@@ -95,8 +95,10 @@
         <% if @booking.nil? == false %>
           <% if policy(Review.new(booking: @booking, user: current_user)).create? %>
             <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
-          <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
-            <%= link_to new_booking_review_path(@booking.id), class: "btn full_btn" do %>
+              <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
+                <%= link_to new_booking_review_path(@booking.id), class: "btn full_btn" do %>
+                <% end %>
+              <% end %>
               <div>
                 <i class="fa fa-comment"></i> Reviews
               </div>
@@ -104,18 +106,13 @@
           <% end %>
         <% end %>
 
+
         <div class="margin-left-2vw">
           <% if !policy(@planet).edit? %>
-          <%= link_to "Show Owner", user_path(@planet.user_id), class: "btn full_btn" %>
+            <%= link_to "Show Owner", user_path(@planet.user_id), class: "btn full_btn" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-  </div>
 </div>
-<<<<<<< HEAD
-</div>
-
-=======
->>>>>>> 0f17208e9e8ccb282d8b8ff8e31eb7b3374d9f0f
