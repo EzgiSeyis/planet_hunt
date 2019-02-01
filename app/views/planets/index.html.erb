@@ -5,11 +5,11 @@
     <br>
     <!-- ------------search----------------- -->
     <%= form_tag planets_path, method: :get, class: 'inline-form' do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a Sunsystem"
-      %>
+      <%= select_tag(
+            :query,
+            options_for_select(Planet.pluck(:solar_system).uniq),
+            class: "form-control", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
+      ) %>
       <%= submit_tag("Search", class: "btn btn-primary") %>
     <% end %>
   </div>
