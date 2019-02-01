@@ -1,0 +1,22 @@
+.full_btn {
+  background-color: #FFBA09;
+  border-radius: 50px;
+  padding: 10px 30px;
+  min-width: 150px;
+  color: #2f2f2f;
+}
+.full_btn:hover {
+  background-color: #FFC531;
+}
+.half_btn {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  padding: 10px 30px;
+  min-width: 150px;
+  color: #2f2f2f;
+  border: 2px solid #FFBA09;
+}
+.half_btn:hover {
+  color: #2f2f2f;
+  background-color: #FFBA09;
+}
