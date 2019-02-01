@@ -8,18 +8,19 @@
 
 .dashboard {
   margin: 20px 0 50px 0;
+  margin-bottom: 20px solid black;
   padding: 20px;
-  // background-color: rgba(12, 23, 63, 0.5);
+  background-color: rgba(12, 23, 63, 0.5);
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
   box-shadow: 4px 4px 16px -6px rgba(0,0,0,0.75);
 }
 
 .dashboard-area {
-  padding: 10px;
-  margin: 10px;
-  background-color: white;
-  border-radius: 4px;
-  box-shadow: 4px 4px 16px -6px rgba(0,0,0,0.4);
+  //padding: 10px;
+  border-bottom: 1px solid grey;
+  padding: 35px;
+  //border-radius: 4px;
+  //box-shadow: 4px 4px 16px -6px rgba(0,0,0,0.4);
 }
 

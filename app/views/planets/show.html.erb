@@ -15,6 +15,7 @@
 
 
 <div id="show_planet_container" class="container">
+  <div class="from_background">
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <div>
@@ -40,14 +41,14 @@
 
       <div>
         <div class="col-sm-4"><h3>Size: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.size %></h3></div>
+        <div class="col-sm-8"><h3><%= @planet.size %> m²</h3></div>
       </div>
       <!-- Force next columns to break to new line -->
       <div class="w-100"></div>
 
       <div>
         <div class="col-sm-4"><h3>Price: </h3></div>
-        <div class="col-sm-8"><h3><%= @planet.price %> Mio $</h3></div>
+        <div class="col-sm-8"><h3><%= @planet.price %> €</h3></div>
       </div>
       <!-- Force next columns to break to new line -->
       <div class="w-100"></div>
@@ -57,10 +58,17 @@
   <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <% if @planet.reviews.empty? == false %> <!-- prüft ob der Planet bereits eine Review hat, wenn nicht dann zeigt die ... -->
-      <h4>Reviews</h4>
-        <% @planet.reviews.each do |review| %>
-          <li> "<%= review.content %>" | <%= review.rating %></li>
-        <% end %>
+
+
+        <h4>Reviews</h4>
+        <ul class='list-unstyled'>
+          <% @planet.reviews.each do |review| %>
+            <li class='review-planet'>
+              <%= select_tag(:star, options_for_select((1..5), review.rating))  %>
+              <p><%= review.user.first_name %>: <%= review.content %></p>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
       <br>
       <div class="flex">
@@ -81,6 +89,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 </div>
 

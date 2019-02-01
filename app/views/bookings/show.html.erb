@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="inside-wrapper">
-
+    <div class="from_background">
     <h2>Great!</h2>
     <p>The booking was successfully completed!</p>
     <p>You have to wait for the answer from the planet owner <b><%= @booking.planet.user.first_name %></b>.</p>
@@ -14,8 +14,6 @@
       <p>Your message for <b><%= @booking.planet.user.first_name %></b>:
         <%= @booking.message %></p>
         <% end %>
-
-
         <div class="boxx">
           <div class="photo-name">
             <% if @booking.user.photo.nil? %>
@@ -36,6 +34,7 @@
             <% end %>
             <p><%= @booking.planet.user.first_name %></p>
           </div>
+        </div>
         </div>
       </div>
 

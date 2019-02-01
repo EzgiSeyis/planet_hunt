@@ -20,6 +20,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def first_review?
-    record.booking.review.nil?
+    record.booking.review.nil? || !record.booking.review.persisted?
   end
 end
