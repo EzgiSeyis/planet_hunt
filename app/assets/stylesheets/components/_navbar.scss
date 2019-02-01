@@ -12,45 +12,38 @@
   top: 0;
   z-index: 1;
   width: 100vw;
-
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 60px;
   border-radius: 50%;
-
 }
 .navbar-wagon-brand h4 {
   color: white;
   text-decoration: none;
 }
-
 h4.navbar-wagon-brand:hover {
   color: white;
   text-decoration: none;
 }
-
 /* User Avatar */
 .navbar-wagon .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
 }
-
 /* Right section */
 .navbar-wagon-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
   padding: 0 20px;
 }
-
 /* Navbar link */
 .navbar-wagon-link {
   // color: #616668;
@@ -61,7 +54,6 @@ h4.navbar-wagon-brand:hover {
   color: #da552f;
   text-decoration: none;
 }
-
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;

@@ -12,8 +12,6 @@
   </div>
 </div>
 
-
-
 <div id="show_planet_container" class="container">
   <div class="from_background">
   <div class="row">
@@ -73,6 +71,8 @@
       <br>
       <div class="flex">
         <% if @booking.nil? == false %>
+          <% if policy(Review.new(booking: @booking, user: current_user)).create? %>
+            <%= link_to new_booking_review_path(@booking.id), class: "btn btn-primary" do %>
           <% if policy(Review.new(booking: @booking,  user: current_user)).create? %>
             <%= link_to new_booking_review_path(@booking.id), class: "btn full_btn" do %>
               <div>
@@ -92,6 +92,3 @@
   </div>
   </div>
 </div>
-
-
-
