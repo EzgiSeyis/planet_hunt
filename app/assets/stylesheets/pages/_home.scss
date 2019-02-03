@@ -1,48 +1,47 @@
 // Specific CSS for your home-page
-#search-form {
-
-  align-items: center
+.title-margin {
+  margin-top: 30vh;
 }
 
-#title-home {
-  position: absolute;
-  top:240px;
-  z-index: 1;
-  color: white;
+.flex-box {
+  // margin-top: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 
 }
 
-#title-home h4{
- color: white;
- text-shadow: 1px 1px #444444;
+.flex-body {
+  text-align: center;
+
 }
 
-#title-home h1 {
+#search-form-home {
+   align-items: center;
+   //left: 60px;
+   margin-top: 50px;
+   padding-left: 18px;
+   z-index: 1;
+ }
+
+.home-title {
+  // height: 100px;
   font-size: 100px;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   font-family: Russo One;
   color: #FFBA09;
-  text-shadow: 2px 2px #ff0000;
-}
-
-#search-form-home {
-  align-items: center;
-  position: absolute;
-  margin-top: 50px;
+  text-shadow: 2px 2px #ff0000 !important;
+  position: relative;
   z-index: 1;
-}
-
-#home-search-column-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100vh;
 
 }
 
-#home-search-flex {
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
+.home-tagline {
+  // height: 100px;
+  color: white;
+  text-shadow: 1px 1px #444444 !important;;
+  position: relative;
+  z-index: 1;
 
 }
