@@ -1,0 +1,11 @@
+<%= form_tag planets_path, method: :get, id: "search-form-home" do %>
+
+    <%= select_tag(
+      :query,
+      options_for_select(Planet.pluck(:solar_system).uniq),
+      class: "form-control", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
+        ) %>
+
+        <%= submit_tag("Search", class: "btn full_btn search_btn") %>
+        <%= link_to "Show all", planets_path, class: "btn half_btn search_btn" %>
+<% end %>

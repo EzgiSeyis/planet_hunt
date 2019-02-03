@@ -1,22 +1,29 @@
-<div id="particles-js">  </div>
-<div id="home-search-column-flex">
-  <div id="home-search-flex">
-    <div id="title-home" class='text-center'>
-      <h1>Planet Hunt</h1>
-      <h4>Who wants a house if you can have a planet?</h4>
-    </div>
-    <%= form_tag planets_path, method: :get, class: 'inline-form col-xs-12 col-sm-10 col-md-6', id: "search-form-home" do %>
+<div id="particles-js"> </div>
+<div class="flex-box">
+  <div class="flex-body">
+    <div class="title-margin">
+    <h1 class="home-title">Planet Hunt</h1>
+    <h4 class="home-tagline">Why rent a flat when you can have a planet?</h4>
+  </div>
+
+  <div class="flex-body">
+
+    <%= form_tag planets_path, method: :get, id: "search-form-home" do %>
     <%= select_tag(
       :query,
       options_for_select(Planet.pluck(:solar_system).uniq),
       class: "form-control", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
         ) %>
+
         <%= submit_tag("Search", class: "btn full_btn search_btn") %>
-      <% end %>
+        <%= link_to "Show all", planets_path, class: "btn half_btn search_btn" %>
+        <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-    <script>
-      window.addEventListener('DOMContentLoaded', function(){
-        start_particles()
-      });
-    </script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function(){
+    start_particles()
+  });
+</script>
