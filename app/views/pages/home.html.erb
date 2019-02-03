@@ -12,7 +12,7 @@
     <%= select_tag(
       :query,
       options_for_select(Planet.pluck(:solar_system).uniq),
-      class: "form-control", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
+      class: "form-control form-width", placeholder: "Find a Sunsystem", prompt: 'Choose a solar system'
         ) %>
 
         <%= submit_tag("Search", class: "btn full_btn search_btn") %>
